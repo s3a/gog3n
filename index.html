@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hu*dojnik - Telegram Bot</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>gog3n - Telegram Bot</title>
     <style>
         :root {
             --bg-color: #ffffff;
@@ -301,7 +300,7 @@
     <div class="header">
         <div class="logo">
             <span class="logo-icon">🎨</span>
-            <span>Hu*dojnik</span>
+            <span>gog3n</span>
         </div>
         <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
     </div>
@@ -389,7 +388,7 @@
         // Конфигурация приложения
         const CONFIG = {
             // ЗАМЕНИТЕ НА ВАШ ВЕБХУК
-            webhookUrl: 'https://n8n.s3amat.ru/webhook-test/gog3n',
+            webhookUrl: 'https://n8n.s3amat.ru/webhook/gog3n-tghook',
             
             // Настройки canvas
             canvas: {
@@ -775,7 +774,7 @@
                     formData.append('prompt', prompt);
                     
                     if (referenceFile) {
-                        formData.append('data', referenceFile);
+                        formData.append('reference', referenceFile);
                     }
                     
                     sendToWebhook(formData, 'generate');
@@ -800,7 +799,7 @@
                     
                     const formData = new FormData();
                     formData.append('prompt', prompt);
-                    formData.append('data', imageFile);
+                    formData.append('image', imageFile);
                     
                     if (maskFile) {
                         formData.append('mask', maskFile);
