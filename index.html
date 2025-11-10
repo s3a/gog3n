@@ -449,12 +449,6 @@
                     } catch (error) {
                         console.error('Error initializing Telegram Web App:', error);
                     }
-                } else {
-                    // Режим разработки - используем параметр URL
-                    const urlParams = new URLSearchParams(window.location.search);
-                    currentChatId = urlParams.get('chat_id');
-                    
-                    console.log('Running in development mode. Chat ID:', currentChatId);
                 }
             }
             
