@@ -452,7 +452,7 @@
                 } else {
                     // Режим разработки - используем параметр URL
                     const urlParams = new URLSearchParams(window.location.search);
-                    currentChatId = urlParams.get('chat_id') || 'dev_chat_id';
+                    currentChatId = urlParams.get('chat_id');
                     
                     console.log('Running in development mode. Chat ID:', currentChatId);
                 }
