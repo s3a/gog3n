@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gog3n - Telegram Bot</title>
+    <title>Hu*dojnik - Telegram Bot</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         :root {
             --bg-color: #ffffff;
@@ -300,7 +301,7 @@
     <div class="header">
         <div class="logo">
             <span class="logo-icon">🎨</span>
-            <span>gog3n</span>
+            <span>Hu*dojnik</span>
         </div>
         <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
     </div>
@@ -449,6 +450,12 @@
                     } catch (error) {
                         console.error('Error initializing Telegram Web App:', error);
                     }
+                } else {
+                    // Режим разработки - используем параметр URL
+                    const urlParams = new URLSearchParams(window.location.search);
+                    currentChatId = urlParams.get('chat_id') || 'dev_chat_id';
+                    
+                    console.log('Running in development mode. Chat ID:', currentChatId);
                 }
             }
             
@@ -768,7 +775,7 @@
                     formData.append('prompt', prompt);
                     
                     if (referenceFile) {
-                        formData.append('reference', referenceFile);
+                        formData.append('data', referenceFile);
                     }
                     
                     sendToWebhook(formData, 'generate');
@@ -793,7 +800,7 @@
                     
                     const formData = new FormData();
                     formData.append('prompt', prompt);
-                    formData.append('image', imageFile);
+                    formData.append('data', imageFile);
                     
                     if (maskFile) {
                         formData.append('mask', maskFile);
